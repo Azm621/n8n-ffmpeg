@@ -1,8 +1,7 @@
-FROM n8nio/n8n:1.28.0
-
+FROM alpine:3.19 AS ffmpeg
+RUN apk add --no-cache ffmpeg
+FROM docker.n8n.io/n8nio/n8n:latest
 USER root
-RUN apt-get update \
- && apt-get install -y ffmpeg \
- && rm -rf /var/lib/apt/lists/*
-
+COPY --from=ffmpeg /usr/bin/ffmpeg /usr/bin/ffmpeg
+COPY --from=ffmpeg /usr/lib /usr/lib
 USER node
