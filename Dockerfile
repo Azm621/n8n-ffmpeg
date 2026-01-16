@@ -3,7 +3,7 @@ FROM alpine:3.19 AS ffmpeg
 RUN apk add --no-cache ffmpeg
 
 # Stage 2: n8n (pin version for stability)
-FROM docker.n8n.io/n8nio/n8n:1.34.2
+FROM docker.n8n.io/n8nio/n8n:2.3.5
 
 USER root
 
