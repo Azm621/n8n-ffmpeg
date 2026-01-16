@@ -1,7 +1,17 @@
+# Stage 1: FFmpeg
 FROM alpine:3.19 AS ffmpeg
 RUN apk add --no-cache ffmpeg
-FROM docker.n8n.io/n8nio/n8n:latest
+
+# Stage 2: n8n (pin version for stability)
+FROM docker.n8n.io/n8nio/n8n:1.34.2
+
 USER root
+
+# Copy ffmpeg binary + required libs
 COPY --from=ffmpeg /usr/bin/ffmpeg /usr/bin/ffmpeg
 COPY --from=ffmpeg /usr/lib /usr/lib
+
+# Ensure executable permissions
+RUN chmod +x /usr/bin/ffmpeg
+
 USER node
