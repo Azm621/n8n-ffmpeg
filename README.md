@@ -13,8 +13,8 @@ This repository contains a Docker Compose setup to deploy n8n with:
 2. Use "Docker Compose Empty" service.
 3. Paste this repo or docker-compose.yml path in Coolify.
 4. **Set environment variables in Coolify:**
-   - `DB_PASSWORD=Pass@123*-`
-   - `N8N_ENCRYPTION_KEY=Pass@123*-`
+   - `DB_PASSWORD=`
+   - `N8N_ENCRYPTION_KEY=`
 5. Enable HTTPS / Let’s Encrypt in Coolify.
-6. Deploy and access n8n at `https://n8n.efmis.com`.
+6. Deploy and access n8n at `YOUR_SUB_DOMAIN`.
 7. Test Google Sheets / Drive / Docs nodes (OAuth ready).
